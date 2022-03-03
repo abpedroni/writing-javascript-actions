@@ -3,20 +3,20 @@ const github = require("@actions/github");
 
 async function run() {
 
-    const issueTitle = core.getInput("issue-title");
+    const issueTitle = core.getInput("issueTitle");
     const jokeBody = core.getInput("joke");
     const token = core.getInput("repo-token");
 
     try {
         const octokit = github.getOctokit(token);
 
-        const newIssue = await octokit.issues.create({
+        const newIssue = await octokit.rest.issues.create({
             repo: github.context.repo.repo,
             owner: github.context.repo.owner,
             title: issueTitle,
             body: jokeBody
         });
-
+        
     } catch (error) {
         core.setFailed(error.message);
     }
