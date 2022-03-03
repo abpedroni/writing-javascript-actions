@@ -13,7 +13,7 @@ inputs:
     default: "a joke for you"
     required: true
        
-  repoToken:
+  repo-token:
     description: "Authentication token, use secrets.GITHUB_TOKEN"
     required: true
 
